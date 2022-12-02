@@ -42,3 +42,12 @@
 .cssTitle {
   font-family: 'Oswald', sans-serif;
 }
+
+.c1 {
+  display: inline-flex;
+}
+
+.card {
+  width: 64vw;
+  height: 128px;
+}
