@@ -44,10 +44,18 @@
 }
 
 .c1 {
-  display: inline-flex;
+  margin-top: 16px;
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
 }
 
 .card {
-  width: 64vw;
-  height: 128px;
+  flex-shrink: 0;
+  width: 300px;
+  border-radius: 10px;
+  margin-left: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
