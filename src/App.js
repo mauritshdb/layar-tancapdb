@@ -39,7 +39,7 @@ function App() {
 
       <div className='container mt-5'>
         <div className='c1'>
-          {filem?.map((item, index) => {
+          {filem.map((item, index) => {
             return (
               <Card style={{ width: '18rem' }} key={index}>
                 <Card.Img variant='top' src='https://image.tmdb.org/t/p/w500/{item.backdrop_path}' />
