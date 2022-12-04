@@ -5,8 +5,8 @@ import Axios from 'axios';
 
 function App() {
 
-  const bUrl = `${process.env.REACT_APP_BASEURL}`;
-  const bAPIKEY = `${process.env.REACT_APP_APIKEY}`;
+  //const bUrl = `${process.env.REACT_APP_BASEURL}`;
+  //const bAPIKEY = `${process.env.REACT_APP_APIKEY}`;
   const urlImage = `${process.env.REACT_APP_BASEIMGURL}`;
 
   const [filem, setFilem] = useState([]);
@@ -15,7 +15,7 @@ function App() {
     const getData = () => {
       Axios({
         method: 'get',
-        url: `${bUrl}movie/popular?api_key=${bAPIKEY}&language=en-US&page=1`,
+        url: `${process.env.REACT_APP_BASEURL}movie/popular?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&page=1`,
       })
         .then(function (response) {
           setFilem(response.data.results);
