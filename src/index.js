@@ -21,12 +21,13 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />
       },
+      {
+        path: "/login",
+        element: <Login/>,
+      },
     ],
   },
-  {
-    path: "/login",
-    element: <Login/>,
-  }
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
