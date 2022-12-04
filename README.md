@@ -9,3 +9,8 @@ Step:
     - axios
     - bootstrap
     - react-router-dom
+
+Feature:
+1. Login
+2. Logout
+3. Read Movies List
