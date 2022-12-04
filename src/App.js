@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
 import Axios from 'axios';
-import Table from 'react-bootstrap/Table';
 
 function App() {
 
