@@ -15,6 +15,7 @@ const router = createBrowserRouter([
       <Navbar/>
       <Outlet/>
     </>,
+    errorElement: <center>Page Not Found 😥</center>,
     children:[
       {
         path: "/",
