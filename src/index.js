@@ -18,13 +18,13 @@ const router = createBrowserRouter([
     errorElement: <center>Page Not Found 😥</center>,
     children:[
       {
-        path: "/home",
+        path: "/",
         element: <App />
       },
       {
         path: "/login",
         element: <Login/>,
-      }
+      },
     ],
   }
 ]);
