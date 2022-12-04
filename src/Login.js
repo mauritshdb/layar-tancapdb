@@ -1,6 +1,9 @@
+import './Login.css';
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 // import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -19,7 +22,6 @@ function Login() {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
       // Movie DB auth step 1
       axios
         .get(
@@ -51,9 +53,10 @@ function Login() {
                   const sessionID = res.data.session_id;
                   console.log(sessionID);
                   localStorage.setItem("session", sessionID);
+                  localStorage.setItem("username", values.username)
                   // navigate('/profile');
                   // window.location.href = "/profile";
-                  window.location.assign("/profile");
+                  window.location.assign("/");
                 });
             });
         });
@@ -61,41 +64,52 @@ function Login() {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label
-        style={{ color: "red", fontSize: 20 }}
-        className="label-username"
-        htmlFor="username"
-      >
-        Username
-      </label>
-      <input
-        id="username"
-        name="username"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.username}
-      />
-      {formik.touched.username && formik.errors.username ? (
-        <div style={{ color: "red" }}>{formik.errors.username}</div>
-      ) : null}
-      <br />
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-      />
-      {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
-      ) : null}
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+
+    <div>
+      <div className='titlePage'>
+        <h1>Login</h1>
+      </div>
+      <div className='divdiv'>
+        <div className='RilForm'>
+          <Form onSubmit={formik.handleSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                name="username"
+                type="text"
+                placeholder="Enter username"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.username}
+              />
+              {formik.touched.username && formik.errors.username ? (
+                <div style={{ color: "red" }}>{formik.errors.username}</div>
+              ) : null}
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                name="password"
+                type="password"
+                placeholder="Password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+              />
+              {formik.touched.password && formik.errors.password ? (
+                <div style={{ color: "red" }}>{formik.errors.password}</div>
+              ) : null}
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </div>
+      </div>
+    </div>
+
   );
 }
 
