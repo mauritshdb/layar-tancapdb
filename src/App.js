@@ -9,21 +9,19 @@ function App() {
   const bAPIKEY = `${process.env.REACT_APP_APIKEY}`;
   const urlImage = `${process.env.REACT_APP_BASEIMGURL}`;
 
-  const getData = () => {
-    Axios({
-      method: 'get',
-      url: `${bUrl}movie/popular?api_key=${bAPIKEY}&language=en-US&page=1`,
-    })
-      .then(function (response) {
-        setFilem(response.data.results);
-      });
-  }
-
   const [filem, setFilem] = useState([]);
 
   useEffect(() => {
-    getData()
-
+    const getData = () => {
+      Axios({
+        method: 'get',
+        url: `${bUrl}movie/popular?api_key=${bAPIKEY}&language=en-US&page=1`,
+      })
+        .then(function (response) {
+          setFilem(response.data.results);
+        });
+    }
+    getData();
   }, []);
 
   return (
