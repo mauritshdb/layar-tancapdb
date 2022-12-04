@@ -9,7 +9,7 @@ function App() {
   const bAPIKEY = `${process.env.REACT_APP_APIKEY}`;
   const urlImage = `${process.env.REACT_APP_BASEIMGURL}`;
 
-  const getData1 = () => {
+  const getData = () => {
     Axios({
       method: 'get',
       url: `${bUrl}movie/popular?api_key=${bAPIKEY}&language=en-US&page=1`,
@@ -18,36 +18,12 @@ function App() {
         setFilem(response.data.results);
       });
   }
-  // bingung biar 1 link url bisa buat banya komponen
-  // udah coba pakai ${page} abis itu mentok
-  const getData2 = () => {
-    Axios({
-      method: 'get',
-      url: `${bUrl}movie/popular?api_key=${bAPIKEY}&language=en-US&page=2`,
-    })
-      .then(function (response) {
-        setFilm(response.data.results);
-      });
-  }
-
-  const getData3 = () => {
-    Axios({
-      method: 'get',
-      url: `${bUrl}movie/popular?api_key=${bAPIKEY}&language=en-US&page=3`,
-    })
-      .then(function (response) {
-        setFim(response.data.results);
-      });
-  }
 
   const [filem, setFilem] = useState([]);
-  const [film, setFilm] = useState([]);
-  const [fim, setFim] = useState([]);
 
   useEffect(() => {
-    getData1()
-    getData2()
-    getData3()
+    getData()
+
   }, []);
 
   return (
@@ -58,42 +34,6 @@ function App() {
         </div>
         <div className='c1'>
           {filem.map((item, index) => {
-            return (
-              <Card key={index}>
-                <Card.Img variant='top' src={`${urlImage}${item.poster_path}`} />
-                <Card.Body>
-                  <Card.Title>{item.title} | {item.vote_average}/10</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">Movie ID: {item.id}</Card.Subtitle>
-                  <Card.Subtitle className="mb-2 text-muted">Popularity: {item.popularity}</Card.Subtitle>
-                  <Card.Text>
-                    {item.overview}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-
-            );
-          })}
-        </div>
-        <div className='c1'>
-          {film.map((item, index) => {
-            return (
-              <Card key={index}>
-                <Card.Img variant='top' src={`${urlImage}${item.poster_path}`} />
-                <Card.Body>
-                  <Card.Title>{item.title} | {item.vote_average}/10</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">Movie ID: {item.id}</Card.Subtitle>
-                  <Card.Subtitle className="mb-2 text-muted">Popularity: {item.popularity}</Card.Subtitle>
-                  <Card.Text>
-                    {item.overview}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-
-            );
-          })}
-        </div>
-        <div className='c1'>
-          {fim.map((item, index) => {
             return (
               <Card key={index}>
                 <Card.Img variant='top' src={`${urlImage}${item.poster_path}`} />
