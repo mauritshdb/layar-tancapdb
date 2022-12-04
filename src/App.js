@@ -1,7 +1,5 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
 import Axios from 'axios';
 
@@ -29,18 +27,6 @@ function App() {
 
   return (
     <>
-      <Navbar sticky='top' bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home" className='cssTitle'>Layar Tancap DB</Navbar.Brand>
-          <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
-              Signed in as: <a href="#login">User</a>
-            </Navbar.Text>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
       <div className='container mt-5'>
         <div>
           <h1>Popular</h1>
