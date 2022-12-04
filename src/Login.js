@@ -29,7 +29,7 @@ function Login() {
         )
         .then((response) => {
           const requestToken = response.data.request_token;
-          console.log(requestToken);
+          // console.log(requestToken);
           axios
             .post(
               `${process.env.REACT_APP_BASEURL}authentication/token/validate_with_login?api_key=${process.env.REACT_APP_APIKEY}`,
@@ -41,7 +41,7 @@ function Login() {
             )
             .then((res) => {
               const validatedRequestToken = res.data.request_token;
-              console.log(validatedRequestToken);
+              // console.log(validatedRequestToken);
               axios
                 .post(
                   `${process.env.REACT_APP_BASEURL}authentication/session/new?api_key=${process.env.REACT_APP_APIKEY}`,
@@ -51,7 +51,7 @@ function Login() {
                 )
                 .then((res) => {
                   const sessionID = res.data.session_id;
-                  console.log(sessionID);
+                  // console.log(sessionID);
                   localStorage.setItem("session", sessionID);
                   localStorage.setItem("username", values.username)
                   // navigate('/profile');
