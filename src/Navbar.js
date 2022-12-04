@@ -23,6 +23,7 @@ function NavbarTop() {
       )
       .then((res) => {
         localStorage.removeItem("session");
+        localStorage.removeItem("username")
         window.location.reload();
       });
     }
