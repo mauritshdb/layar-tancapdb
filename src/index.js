@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import Navbar from './Navbar';
+import Login from './Login'
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,9 +12,20 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <>
-      <App/>
+      <Navbar/>
+      <Outlet/>
     </>,
-    errorElement: <center>Page Not Found</center>
+    errorElement: <center>Page Not Found</center>,
+    children:[
+      {
+        path: "/",
+        element: <App />
+      },
+      {
+        path: "/login",
+        element: <Login/>,
+      }
+    ],
   }
 ]);
 
